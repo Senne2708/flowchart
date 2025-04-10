@@ -1,6 +1,30 @@
 import React from 'react';
-import { Paper, Text, Button, Group, Stack, Box } from '@mantine/core';
+import { Paper, Text, Button, Group, Stack, Box, Space } from '@mantine/core';
 import '@mantine/core/styles.css';
+
+const Diamond: React.FC<{ content: string, width?:number, height?:number }> = ({ content, width=100, height=100 }) => {
+  return (
+    <Box
+      style={{
+        width,
+        height,
+        backgroundColor: '#1c7ed6', // any color you prefer
+        transform: 'rotate(45deg)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: 'white',
+        padding: '20px',
+        boxSizing: 'border-box',
+      }}
+    >
+      {/* Unrotate content inside */}
+      <Text style={{ transform: 'rotate(-45deg)', textAlign: 'center' }}>
+        {content}
+      </Text>
+    </Box>
+  );
+};
 
 const Flowchart: React.FC = () => {
   return (
@@ -10,6 +34,15 @@ const Flowchart: React.FC = () => {
           Satellite Image Processing Pipeline
         </Text>
 
+        {/* Legend */}
+        <Paper shadow="xs" p="md" mt="lg" withBorder>
+          <Text fw={500} mb="sm">Legend:</Text>
+          <Group>
+            <Diamond content='' width={10} height={10}></Diamond>
+            <Text fw={500}>Decision - Represents decision points in the flowchart</Text>
+          </Group>
+        </Paper>
+
         {/* Main pipeline flow */}
         <Stack align="center" gap="xs">
           <Button color="blue" radius="md">Start Pipeline</Button>
@@ -18,19 +51,17 @@ const Flowchart: React.FC = () => {
           <Text>↓</Text>
           <Button color="blue" radius="md">Initialise EarthDriver</Button>
           <Text>↓</Text>
-          
-          {/* Decision point */}
-          <Box style={{ position: 'relative', margin: '20px 0' }}>
-            <Button color="orange" radius="md">Dataset Processing?</Button>
-            <Group justify="center" mt="xs">
-              <Button color="blue" radius="md" style={{ marginRight: '100px' }}>Yes</Button>
-              <Button color="blue" radius="md">No</Button>
-            </Group>
-          </Box>
+
+          <Space h="md" />
+          <Diamond content='Dataset Processing?'></Diamond>
+          <Group justify="center" mt="xs" >
+            <Button color="blue" radius="md" style={{ marginRight: '100px' }}>Yes</Button>
+            <Button color="blue" radius="md">No</Button>
+          </Group>
 
           {/* Dataset processing branch */}
-          <Box style={{ 
-            border: '1px solid #4dabf7', 
+          <Box style={{
+            border: '1px solid #4dabf7',
             backgroundColor: '#f1f8ff',
             borderRadius: '8px',
             padding: '15px',
@@ -49,19 +80,19 @@ const Flowchart: React.FC = () => {
               <Button color="orange" variant="light" radius="md">Quality Filtering</Button>
             </Stack>
           </Box>
+          <Text>↓</Text>
 
           {/* Second decision point */}
-          <Box style={{ position: 'relative', margin: '20px 0' }}>
-            <Button color="orange" radius="md">Mask Processing?</Button>
-            <Group justify="center" mt="xs">
-              <Button color="blue" radius="md" style={{ marginRight: '100px' }}>Yes</Button>
-              <Button color="blue" radius="md">No</Button>
-            </Group>
-          </Box>
+          <Space h='md'/>
+          <Diamond content='Mask Processing?'></Diamond>
+          <Group justify="center" mt="xs">
+            <Button color="blue" radius="md" style={{ marginRight: '100px' }}>Yes</Button>
+            <Button color="blue" radius="md">No</Button>
+          </Group>
 
           {/* Mask processing branch */}
-          <Box style={{ 
-            border: '1px solid #20c997', 
+          <Box style={{
+            border: '1px solid #20c997',
             backgroundColor: '#f0fdf4',
             borderRadius: '8px',
             padding: '15px',
@@ -94,19 +125,10 @@ const Flowchart: React.FC = () => {
           <Button color="blue" radius="md" mt="md">End Pipeline</Button>
         </Stack>
 
-        {/* Legend */}
-        <Paper shadow="xs" p="md" mt="lg" withBorder>
-          <Text fw={500} mb="sm">Legend:</Text>
-          <Group>
-            <Button color="blue" size="xs" radius="md">Process</Button>
-            <Button color="gray" size="xs" radius="md">Config</Button>
-            <Button color="orange" size="xs" radius="md">Decision</Button>
-            <Button color="orange" variant="light" size="xs" radius="md">Filtering</Button>
-          </Group>
-        </Paper>
       </Paper>
     </div>
   );
 };
 
 export default Flowchart;
+
