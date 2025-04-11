@@ -9,7 +9,7 @@ function Header() {
       justify="space-between"
     >
       <Group>
-        <Title>Senne's Dissertation Project</Title>
+        <Title>Dissertation Project</Title>
       </Group>
     </Flex>
   );
