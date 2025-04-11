@@ -11,7 +11,7 @@ const Config: React.FC<{ content: string }> = ({ content }) => {
       variant="outline"
       radius="sm"
       style={{
-        backgroundColor: colors.configColor,
+        backgroundColor: colors.configColour,
         color: 'black',
         minWidth: '200px'
       }}
