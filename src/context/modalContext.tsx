@@ -1,8 +1,8 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { Modal } from '@mantine/core';
 
 type ModalContextType = {
-  openModal: (content: string, title?: string) => void;
+  openModal: (content: ReactNode, title?: string) => void;
   closeModal: () => void;
 };
 
@@ -13,10 +13,10 @@ const ModalContext = createContext<ModalContextType>({
 
 export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState<ReactNode>(null);
   const [title, setTitle] = useState('');
 
-  const openModal = (content: string, title: string = '') => {
+  const openModal = (content: ReactNode, title: string = '') => {
     setContent(content);
     setTitle(title);
     setIsOpen(true);
@@ -29,7 +29,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}
-      <Modal opened={isOpen} onClose={closeModal} title={title} centered>
+      <Modal opened={isOpen} onClose={closeModal} title={title} centered size="lg">
         {content}
       </Modal>
     </ModalContext.Provider>

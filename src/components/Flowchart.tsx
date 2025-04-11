@@ -1,6 +1,9 @@
-import { Box, Button, Card, Grid, Group, Paper, Space, Stack, Text, Title} from '@mantine/core';
+import { Box, Card, Grid, Group, Paper, Space, Stack, Text, Title} from '@mantine/core';
 import Config from './Config';
 import StandardBox from './StandardBox';
+import QualityFiltering from './QualityFiltering';
+import EndPipeline from './EndPipeline';
+import Tiles from './Tile';
 
 const colors = {
   configColor: 'rgb(60, 145, 230)',    // configcolor
@@ -13,23 +16,6 @@ const colors = {
 
 
 function Flowchart() {
-  
-  // Module style for filtering components
-  const Module: React.FC<{ content: string }> = ({ content }) => {
-    return (
-      <Button 
-        variant="outline"
-        radius="sm"
-        style={{
-          backgroundColor: colors.configColor,
-          color: 'black',
-          minWidth: '200px'
-        }}
-      >
-        {content}
-      </Button>
-    );
-  };
 
   // Diamond shaped decision point
   const Decision: React.FC<{ content: string }> = ({ content }) => {
@@ -60,21 +46,17 @@ function Flowchart() {
     <div>
       <Title order={2} mb="md">Flowchart</Title>
        <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Stack align='center'>
-          <Paper shadow="xs" p="md" mt="lg" withBorder>
+        <Stack align='center' w={'100%'}>
+          <Paper shadow="xs" p="md" mt="lg" withBorder w={'100%'}>
           <Stack>
             <Text fw={500} mb="sm">Legend:</Text>
             <Group>
               <StandardBox text="" color='processColour'/>
               <Text>Process</Text>
-            </Group>
               
-            <Group>
               <Config content="" />
               <Text>Config</Text>
-            </Group>
               
-            <Group>
               <Box
                 style={{
                   width: 30,
@@ -85,18 +67,15 @@ function Flowchart() {
                 }}
               />
               <Text>Decision</Text>
-            </Group>
-              
-            <Group>
-              <Module content="" />
-              <Text>Filtering</Text>
+              <QualityFiltering content=''/>
+              <Text>Quality Filtering</Text>
             </Group>
               
           </Stack>
         </Paper>
 
         {/* Main pipeline flow */}
-        <Stack align="center" gap="xs">
+        <Stack align="center" gap="xs" w={'100%'}>
           <Space h="md" />
           <StandardBox text="Start Pipeline" color='processColour'/>
           <Text>↓</Text>
@@ -107,14 +86,14 @@ function Flowchart() {
           
           {/* First decision point with three-column grid layout */}
           <Space h="md" />
-          <Grid style={{ width: '100%', position: 'relative' }}>
-            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Grid style={{ width: '100%', position: 'relative', border: '1px solid black' }}>
+            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', border:'1px solid black' }}>
               <Box style={{ position: 'relative', top: '110px' }}>
                 <StandardBox text="Skip Dataset Processing" color='processColour'/>
               </Box>
             </Grid.Col>
             
-            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', border: '1px solid black' }}>
               <Decision content="Dataset Processing?" />
               <Space h="md" />
               <Text>↓</Text>      
@@ -139,20 +118,20 @@ function Flowchart() {
                   <StandardBox text="Initialise Cloud Model" color='processColour'/>
                   <Text>↓</Text>
                   
-                  <StandardBox text="Generate & Validate Tiles" color='processColour'/>
+                  <Tiles/>
                   
                   <Text>↓</Text>
                   
                   <StandardBox text="Create & Download Images" color='processColour'/>
                   
                   <Text>↓</Text>
-                  <Module content="Quality Filtering" />
+                  <QualityFiltering content="Quality Filtering" />
                 </Stack>
               </Box>
               <Text>↓</Text>
             </Grid.Col>
             
-            <Grid.Col span={2}>
+            <Grid.Col span={2}style={{border: '1px solid black'}}>
             </Grid.Col>
           </Grid>
 
@@ -193,8 +172,7 @@ function Flowchart() {
                   
                   <Text>↓</Text>
                   
-                  <StandardBox text="Generate & Validate Mask Tiles" color='processColour'/>
-
+                  <Tiles />
                   <Text>↓</Text>
                   
                   <StandardBox text="Find Glacier Dates & Select Satellite" color='processColour'/>
@@ -202,7 +180,7 @@ function Flowchart() {
                   <Text>↓</Text>
                   <StandardBox text="Create & Download Mask Images" color='processColour'/>
                   <Text>↓</Text>
-                  <Module content="Quality Filtering" />
+                  <QualityFiltering content="Quality Filtering" />
                   <Text>↓</Text>
                   <StandardBox text="Create Glacier Masks" color='processColour'/>
                   <Text>↓</Text>
@@ -220,7 +198,7 @@ function Flowchart() {
           </Grid>
 
           {/* End point */}
-          <StandardBox text="End Pipeline" color='processColour'/>
+          <EndPipeline/>
         </Stack>
 
         </Stack>
