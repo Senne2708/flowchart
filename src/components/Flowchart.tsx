@@ -85,28 +85,26 @@ function Flowchart() {
           {/* First decision point with three-column grid layout */}
           <Space h="md" />
           <Grid style={{ width: '100%', position: 'relative' }}>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
               <Group>
                 <Text>↓</Text>
-                <Text>←</Text>
                 <Text>No</Text>
-                <Text>←</Text>
               </Group>
             </Grid.Col>
             
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
               <Decision content="Dataset Processing?" />
             </Grid.Col>
             
-            <Grid.Col span={4}></Grid.Col>
+            <Grid.Col span={2}></Grid.Col>
           </Grid>
 
           {/* Yes path for first decision */}
           <Grid style={{ width: '100%', position: 'relative' }}>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} >              
+            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} >              
               <Text>↓</Text>
             </Grid.Col>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
               <Text>↓</Text>      
               <Text size="sm">Yes</Text>
               <Text>↓</Text>
@@ -141,27 +139,25 @@ function Flowchart() {
               </Box>
               <Text>↓</Text>
             </Grid.Col>
-            <Grid.Col span={4}></Grid.Col>
+            <Grid.Col span={2}></Grid.Col>
           </Grid>
 
           {/* Second decision point with three-column grid layout */}
           <Space h="md" />
           <Grid style={{ width: '100%', position: 'relative'}}>
-            <Grid.Col  variant='outline' span={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Grid.Col  variant='outline' span={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
               <Group>
                 <Text>→</Text>
               </Group>
             </Grid.Col>
             
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
               <Decision content="Mask Processing?" />
             </Grid.Col>
             
-            <Grid.Col span={4} style={{display:'flex'}}>
+            <Grid.Col span={2} style={{display:'flex'}}>
               <Group>
-                <Text>→</Text>
                 <Text>No</Text>
-                <Text>→</Text>
                 <Text>↓</Text>
               </Group>
             </Grid.Col>
@@ -169,10 +165,10 @@ function Flowchart() {
 
           {/* Yes path for second decision */}
           <Grid style={{ width: '100%', position: 'relative'}}>
-            <Grid.Col span={4}>
+            <Grid.Col span={2}>
               
             </Grid.Col>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
               <Text>↓</Text>
               <Text size="sm">Yes</Text>
               <Text>↓</Text>
@@ -216,18 +212,18 @@ function Flowchart() {
               </Box>
               <Text>↓</Text>
             </Grid.Col>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} >              
+            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} >              
               <Text>↓</Text>
             </Grid.Col>
           </Grid>
 
           {/* End point */}
           <Grid style={{ width: '100%', position: 'relative'}}>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}></Grid.Col>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}></Grid.Col>
+            <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
               <EndPipeline/>
             </Grid.Col>
-            <Grid.Col span={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
               <Group>
                 <Text>←</Text>
               </Group>
