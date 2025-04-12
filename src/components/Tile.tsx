@@ -5,17 +5,16 @@ import { colors } from "./colors";
 const Tiles: React.FC = () => {
   const { openModal } = useModal();
   
-  // Create the map HTML content
   const mapContent = (
     <div style={{ width: "100vw", height: "80vh", maxWidth: "100%" }}>
       <iframe 
-        src="https://senne2708.github.io/flowchart/public/temp_map.html" 
+        src={`${process.env.PUBLIC_URL || ''}/temp_map.html`}
         style={{ width: "100%", height: "100%", border: "none" }} 
         title="Map"
       />
     </div>
   );
-  
+    
   return (
     <Button
       variant="outline"
