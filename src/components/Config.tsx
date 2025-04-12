@@ -86,6 +86,7 @@ Dataset:
         codeModalContent,
         'Configuration Example'
       )}
+      miw={200}
     >
       {content}
     </Button>

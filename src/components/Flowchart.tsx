@@ -52,7 +52,16 @@ function Flowchart() {
               <StandardBox text="" color='processColour'/>
               <Text>Process</Text>
               
-              <Config content=""/>
+              <Box
+                style={{
+                  backgroundColor: colors.configColor,
+                  borderRadius: '5px',
+                  minWidth: '38px',
+                  minHeight: '36px',
+                  padding:'5px',
+                  textAlign:'center',
+                }}
+              />
               <Text>Config</Text>
               
               <Box
@@ -64,7 +73,16 @@ function Flowchart() {
                 }}
               />
               <Text>Decision</Text>
-              <QualityFiltering content=''/>
+              <Box
+                style={{
+                  backgroundColor: colors.moduleColor,
+                  borderRadius: '5px',
+                  minWidth: '38px',
+                  minHeight: '36px',
+                  padding:'5px',
+                  textAlign:'center',
+                }}
+              />
               <Text>Quality Filtering</Text>
             </Group>
               

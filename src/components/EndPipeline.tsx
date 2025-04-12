@@ -71,6 +71,7 @@ const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) =
         border: '1px solid black',
       }}
       onClick={handleClick}
+      miw={200}
     >
       {content}
     </Button>
