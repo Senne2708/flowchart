@@ -34,7 +34,10 @@ const Tiles: React.FC = () => {
         alignItems: 'center',
         whiteSpace: 'normal'
       }}
-      onClick={() => openModal(mapContent)}
+      onClick={() => openModal(
+        mapContent,
+        "Splitting Large Bounding Box"
+      )}
     >
       Generate
       <br />
