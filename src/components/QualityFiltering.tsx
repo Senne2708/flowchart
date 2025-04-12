@@ -20,7 +20,7 @@ const QualityFiltering: React.FC<{ content?: string }> = ({ content }) => {
         'This is a modal',
         'Quality Filtering'
       )}
-      miw={200}
+      miw={140}
     >
       {content}
     </Button>

@@ -34,7 +34,7 @@ const Tiles: React.FC = () => {
         alignItems: 'center',
         whiteSpace: 'normal'
       }}
-      miw={200}
+      miw={140}
       onClick={() => openModal(
         mapContent,
         "Splitting Large Bounding Box"
