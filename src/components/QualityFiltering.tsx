@@ -18,7 +18,7 @@ const QualityFiltering: React.FC<{ content?: string }> = ({ content }) => {
       }}
       onClick={() => openModal(
         'This is a modal',
-        'Quality Filtering'
+        'Quality Filter'
       )}
       miw={140}
     >

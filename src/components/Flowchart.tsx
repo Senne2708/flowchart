@@ -83,9 +83,9 @@ function Flowchart() {
                   textAlign:'center',
                 }}
               />
-              <Text>Quality Filtering</Text>
+              <Text>Quality Filter</Text>
             </Group>
-              
+            <Text fs={'bold'}> Note: Any box with a black boundary is interactive</Text>
           </Stack>
         </Paper>
 
@@ -152,7 +152,7 @@ function Flowchart() {
                   <StandardBox text="Create & Download Images" color='processColour'/>
                   
                   <Text>↓</Text>
-                  <QualityFiltering content="Quality Filtering" />
+                  <QualityFiltering content="Quality Filter" />
                 </Stack>
               </Box>
               <Text>↓</Text>
@@ -221,7 +221,7 @@ function Flowchart() {
                   <Text>↓</Text>
                   <StandardBox text="Create & Download Mask Images" color='processColour'/>
                   <Text>↓</Text>
-                  <QualityFiltering content="Quality Filtering" />
+                  <QualityFiltering content="Quality Filter" />
                   <Text>↓</Text>
                   <StandardBox text="Create Glacier Masks" color='processColour'/>
                   <Text>↓</Text>
@@ -248,6 +248,7 @@ function Flowchart() {
             </Grid.Col>
           </Grid>
         </Stack>
+        <Space h={'lg'} />
 
         </Stack>
       </Card>
