@@ -6,11 +6,13 @@ const StandardBox: React.FC<{ text: string, color: keyof typeof colors }> = ({ t
     <Box
       style={{
         backgroundColor: colors[color],
-        borderRadius: 'sm',
+        borderRadius: '5px',
         color: 'black',
         minWidth: '38px',
         minHeight: '36px',
-        padding:'5px'
+        padding:'5px',
+        textAlign:'center',
+        maxWidth: '120px'
       }}
     >
       {text}

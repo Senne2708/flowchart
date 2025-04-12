@@ -29,7 +29,29 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}
-      <Modal opened={isOpen} onClose={closeModal} title={title} centered size="lg">
+      <Modal 
+        display={'flex'} 
+        opened={isOpen} 
+        onClose={closeModal} 
+        title={title} 
+        centered
+        size="auto"
+        styles={{
+          inner: {
+            padding: '20px'
+          },
+          content: {
+            maxWidth: 'calc(100vw - 40px)', // Prevent horizontal overflow
+            maxHeight: 'calc(100vh - 40px)', // Prevent vertical overflow
+            width: 'auto',
+            margin: '0 auto'
+          },
+          body: {
+            padding: '10px',
+            overflow: 'auto'
+          }
+        }}
+      >
         {content}
       </Modal>
     </ModalContext.Provider>

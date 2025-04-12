@@ -54,15 +54,14 @@ function Flowchart() {
               <StandardBox text="" color='processColour'/>
               <Text>Process</Text>
               
-              <Config content="" />
+              <Config content=""/>
               <Text>Config</Text>
               
               <Box
                 style={{
                   width: 30,
                   height: 30,
-                  backgroundColor: 'white',
-                  border: '1px solid #228be6',
+                  backgroundColor: colors.decisionColor,
                   transform: 'rotate(45deg)'
                 }}
               />
@@ -83,14 +82,12 @@ function Flowchart() {
 
           <Text>↓</Text>
           <StandardBox text="Initialise EarthDriver" color='processColour'/>
+          <Text>↓</Text>
           
           {/* First decision point with three-column grid layout */}
           <Space h="md" />
           <Grid style={{ width: '100%', position: 'relative', border: '1px solid black' }}>
             <Grid.Col span={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', border:'1px solid black' }}>
-              <Box style={{ position: 'relative', top: '110px' }}>
-                <StandardBox text="Skip Dataset Processing" color='processColour'/>
-              </Box>
             </Grid.Col>
             
             <Grid.Col span={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', border: '1px solid black' }}>
@@ -191,9 +188,6 @@ function Flowchart() {
             </Grid.Col>
             
             <Grid.Col span={2}>
-              <Box style={{ position: 'relative', top: '110px', display: 'flex', justifyContent: 'flex-end' }}>
-                <StandardBox text="Skip Mask Processing" color='processColour'/>
-              </Box>
             </Grid.Col>
           </Grid>
 
