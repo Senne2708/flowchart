@@ -8,7 +8,7 @@ const Tiles: React.FC = () => {
   const mapContent = (
     <div style={{ width: "100vw", height: "70vh", maxWidth: "100%" }}>
       <iframe 
-        src="/flowchart/tile_map.html"
+        src="/flowchart/small_tile_map.html"
         style={{ width: "100%", height: "100%", border: "none" }} 
         title="Map"
       />
