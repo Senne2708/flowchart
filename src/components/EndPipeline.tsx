@@ -6,54 +6,59 @@ import React from "react";
 const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) => {
   const { openModal } = useModal();
   
+  // Generate mask data for all 9 images
+  const maskImages = Array.from({ length: 9 }, (_, i) => {
+    const imageNum = i + 1; // Start from 1
+    return {
+      image: `mask_images/images_${imageNum}_RGBA.jpeg`,
+      mask: `mask_masks/images_${imageNum}_RGBA_glacier_mask_rgb.jpeg`,
+      altImage: `Result ${imageNum}`,
+      altMask: `Result ${imageNum} Mask`
+    };
+  });
+  
+  // Specify only the dataset images that exist (1, 3, and 9)
+  const datasetImageNumbers = [1, 3, 9];
+  const datasetImages = datasetImageNumbers.map(imageNum => ({
+    image: `dataset_images/images_${imageNum}_RGBA.jpeg`,
+    altImage: `Dataset Image ${imageNum}`
+  }));
+
   const handleClick = () => {
     const modalContent = (
       <>
         <Title order={3} mb="md">Mask Output Results</Title>
-        <Grid gutter="md" maw={800}>
-          <Grid.Col span={6}>
-            <Image 
-              src="end_pipeline/europe_2_RGBA.jpg" 
-              alt="Result 1" 
-            />
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <Image
-              src="end_pipeline/europe_2_RGBA_glacier_mask_rgb.jpg"
-              alt="Result 1 Mask"
-            />
-          </Grid.Col>
-        </Grid>
-        <Space h="md"/>
-        <Grid gutter="md" maw={800}>
-          <Grid.Col span={6}>
-            <Image 
-              src="end_pipeline/greenland_27_RGBA.jpg" 
-              alt="Result 2" 
-            />
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <Image
-              src="end_pipeline/greenland_27_RGBA_glacier_mask_rgb.jpg"
-              alt="Result 2 Mask"
-            />
-          </Grid.Col>
-        </Grid>
-        <Space h={'sm'} />
+        {maskImages.map((item, index) => (
+          <React.Fragment key={`mask-${index}`}>
+            <Grid gutter="md" maw={800}>
+              <Grid.Col span={6}>
+                <Image 
+                  src={item.image} 
+                  alt={item.altImage} 
+                />
+              </Grid.Col>
+              <Grid.Col span={6}>
+                <Image
+                  src={item.mask}
+                  alt={item.altMask}
+                />
+              </Grid.Col>
+            </Grid>
+            {index < maskImages.length - 1 && <Space h="md" />}
+          </React.Fragment>
+        ))}
+        
+        <Space h="sm" />
         <Title order={3} mb="md">Dataset Output Results</Title>
         <Grid gutter="md" maw={800}>
-          <Grid.Col span={6}>
-            <Image 
-              src="end_pipeline/images_3_RGBA.jpeg" 
-              alt="Result 2" 
-            />
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <Image
-              src="end_pipeline/images_4_RGBA.jpeg"
-              alt="Result 2 Mask"
-            />
-          </Grid.Col>
+          {datasetImages.map((item, index) => (
+            <Grid.Col span={6} key={`dataset-${index}`}>
+              <Image 
+                src={item.image}
+                alt={item.altImage}
+              />
+            </Grid.Col>
+          ))}
         </Grid>
       </>
     );
@@ -76,6 +81,6 @@ const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) =
       {content}
     </Button>
   );
-}
+};
 
 export default EndPipeline;

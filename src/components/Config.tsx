@@ -7,31 +7,36 @@ const Config: React.FC<{ content: string }> = ({ content }) => {
 
   const configYamlCode = `
 projectName: 'senne-test-439915'
-imageCollection: 'LANDSAT/LC08/C02/T1_TOA'
 
 scale: 30
 
-Mask:
-  want: False
-  regionName: "alaska"
-  region: [-144.5, 60.3, -144, 61]  
-  allowedDeadPixels: 10
-  allowedCloudCoverage: 10
-  cloudModelPath: "/path/to/model.pt"
-  output_dir_mask: "./masks/"
-  output_dir_image: "./images_mask/"
-
+# Dataset Generation Settings
 Dataset:
   want: True
   regionName: "alaska"
-  region: [-150, 59.5, -149.5, 60]
-  startDate: "2022-01-01"
-  endDate: "2023-01-01"
+  region: [-143.7, 60.3, -143, 60.6]
+  startDate: "2022-04-01"
+  endDate: "2022-07-01"
+  imageCollection: 'LANDSAT/LC08/C02/T1_TOA'
   allowedDeadPixels: 10
-  checkClouds: true
-  cloudModelPath: "/path/to/model.pt"
   allowedCloudCoverage: 10
-  output_dir_image: "./dataset/"`;
+  cloudModelPath: "/path/to/model.pt"
+  output_dir_image: "./dataset/"
+
+
+
+# Mask Generation Settings
+Mask:
+  want: True
+  regionName: "alaska"
+  region: [-142.2, 61, -141.6, 61.3]
+  window: 5
+  allowedDeadPixels: 20
+  allowedCloudCoverage: 20
+  cloudModelPath: "/path/to/model.pt"
+  output_dir_mask: "./masks/"
+  output_dir_image: "./images_mask/"
+`;
 
   // Create a formatted code block for the modal
   const codeModalContent = (

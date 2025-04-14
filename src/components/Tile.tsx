@@ -1,14 +1,22 @@
 import { Button } from "@mantine/core";
 import { useModal } from "../context/modalContext";
 import { colors } from "./colors";
+import React from "react";
 
-const Tiles: React.FC = () => {
+const Tiles: React.FC<{type: string}> = ({type}) => {
   const { openModal } = useModal();
+  let html_path: string = '';
+  
+  if (type === 'dataset') {
+    html_path = 'dataset_map_example.html';
+  } else if (type === 'mask') {
+    html_path = 'mask_map_example.html';
+  }
   
   const mapContent = (
     <div style={{ width: "100vw", height: "70vh", maxWidth: "100%" }}>
       <iframe 
-        src="/flowchart/small_tile_map.html"
+        src={html_path}
         style={{ width: "100%", height: "100%", border: "none" }} 
         title="Map"
       />
@@ -47,6 +55,6 @@ const Tiles: React.FC = () => {
       Validate Tiles
     </Button>
   );
-}
+};
 
 export default Tiles;

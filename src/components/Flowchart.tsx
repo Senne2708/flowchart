@@ -145,14 +145,14 @@ function Flowchart() {
                   <StandardBox text="Initialise Cloud Model" color='processColour'/>
                   <Text>↓</Text>
                   
-                  <Tiles/>
+                  <Tiles type='dataset'/>
                   
                   <Text>↓</Text>
                   
                   <StandardBox text="Create & Download Images" color='processColour'/>
                   
                   <Text>↓</Text>
-                  <QualityFiltering content="Quality Filter" />
+                  <QualityFiltering type="dataset" content="Quality Filter" />
                 </Stack>
               </Box>
               <Text>↓</Text>
@@ -213,7 +213,7 @@ function Flowchart() {
                   
                   <Text>↓</Text>
                   
-                  <Tiles />
+                  <Tiles type="mask"/>
                   <Text>↓</Text>
                   
                   <StandardBox text="Find Glacier Dates & Select Satellite" color='processColour'/>
@@ -221,7 +221,7 @@ function Flowchart() {
                   <Text>↓</Text>
                   <StandardBox text="Create & Download Mask Images" color='processColour'/>
                   <Text>↓</Text>
-                  <QualityFiltering content="Quality Filter" />
+                  <QualityFiltering type="mask" content="Quality Filter" />
                   <Text>↓</Text>
                   <StandardBox text="Create Glacier Masks" color='processColour'/>
                   <Text>↓</Text>
