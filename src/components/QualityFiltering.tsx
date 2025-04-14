@@ -1,4 +1,4 @@
-import { Button, Text, Grid, Image, Title, Stack } from "@mantine/core";
+import { Button, Text, Image, Title, Stack } from "@mantine/core";
 import { useModal } from "../context/modalContext";
 import { colors } from "./colors";
 import React from "react";
