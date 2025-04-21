@@ -8,9 +8,9 @@ const Tiles: React.FC<{type: string}> = ({type}) => {
   let html_path: string = '';
   
   if (type === 'dataset') {
-    html_path = 'dataset_map_example.html';
+    html_path = 'geemap_visualisation_dataset.html';
   } else if (type === 'mask') {
-    html_path = 'mask_map_example.html';
+    html_path = 'geemap_visualisation_mask.html';
   }
   
   const mapContent = (
