@@ -1,4 +1,4 @@
-import { Button, Space, Grid, Image, Title } from "@mantine/core";
+import { Button, Space, Grid, Image, Title, Group } from "@mantine/core";
 import { useModal } from "../context/modalContext";
 import { colors } from "./colors";
 import React from "react";
@@ -60,6 +60,29 @@ const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) =
             </Grid.Col>
           ))}
         </Grid>
+        
+        <Space h="xl" />
+        <Title order={3} mb="md">Download Results</Title>
+        <Group>
+          <Button 
+            component="a"
+            href="/mask_image_metadata.csv"
+            download
+            variant="filled"
+            color="blue"
+          >
+            Download Mask Results CSV
+          </Button>
+          <Button 
+            component="a"
+            href="/dataset_image_metadata.csv"
+            download
+            variant="filled"
+            color="teal"
+          >
+            Download Datatset Results CSV
+          </Button>
+        </Group>
       </>
     );
     
