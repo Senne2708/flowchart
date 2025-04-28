@@ -80,7 +80,7 @@ const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) =
             variant="filled"
             color="teal"
           >
-            Download Datatset Results CSV
+            Download Dataset Results CSV
           </Button>
         </Group>
       </>
