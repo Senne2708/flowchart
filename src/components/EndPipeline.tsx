@@ -66,7 +66,7 @@ const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) =
         <Group>
           <Button 
             component="a"
-            href="/mask_image_metadata.csv"
+            href="mask_image_metadata.csv"
             download
             variant="filled"
             color="blue"
@@ -75,7 +75,7 @@ const EndPipeline: React.FC<{content?: string}> = ({content = "End Pipeline"}) =
           </Button>
           <Button 
             component="a"
-            href="/dataset_image_metadata.csv"
+            href="dataset_image_metadata.csv"
             download
             variant="filled"
             color="teal"
